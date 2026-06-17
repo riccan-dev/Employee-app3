@@ -1,12 +1,7 @@
 package com.example.demo.domain.service;
 
-import java.util.List;
-
-import com.example.demo.domain.dto.EmployeeDto;
+import com.example.demo.domain.dto.EmployeePageDto;
 
 public interface EmployeeListService {
-	
-	public List<EmployeeDto> listEmployeeDto(int page);
-	public int getTotalPages();
-	long getTotalCount();
+    EmployeePageDto listEmployeeDto(int page);
 }
