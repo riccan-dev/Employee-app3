@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>従業員一覧</title>
+	<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+	<header class="header">
+		<h1>従業員管理システム</h1>
+	</header>
+
+	<main class="container">
+		<div class="card">
+			<h2 class="page-title">従業員一覧画面</h2>
+			<table border="1">
+				<tr>
+					<th>従業員ID</th>
+					<th>従業員名</th>
+					<th>部署名</th>
+					<th>内線番号</th>
+				</tr>
+
+				<tr th:each="employeeDto : ${employeeDtoList}">
+					<td th:text="${employeeDto.employeeId}"></td>
+					<td th:text="${employeeDto.employeeName}"></td>
+					<td th:text="${employeeDto.departmentName}"></td>
+					<td th:text="${employeeDto.extensionNumber}"></td>
+				</tr>
+			</table>
+			<div class="mt-30">
+				<span th:if="${currentPage > 1}">
+					<a class="btn btn-secondary" th:href="@{/employeesList(page=${currentPage - 1})}">前へ</a>
+				</span>
+				<!--			    <span th:each="i : ${#numbers.sequence(1, totalPages)}">-->
+				<!--			        <a class="btn" th:classappend="${i == currentPage} ? 'btn-primary' : 'btn-secondary'"-->
+				<!--			           th:href="@{/employeesList(page=${i})}" th:text="${i}"></a>-->
+				<!--			    </span>-->
+				<span th:each="i : ${pageList}">
+					<span th:if="${i == null}">...</span>
+					<a th:if="${i != null}" class="btn"
+						th:classappend="${i == currentPage} ? 'btn-primary' : 'btn-secondary'"
+						th:href="@{/employeesList(page=${i})}" th:text="${i}"></a>
+				</span>
+				<span th:if="${currentPage < totalPages}">
+					<a class="btn btn-secondary" th:href="@{/employeesList(page=${currentPage + 1})}">次へ</a>
+				</span>
+			</div>
+			<div class="mt-30">
+				<a class="btn btn-secondary" th:href="@{/}">トップへ戻る</a>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

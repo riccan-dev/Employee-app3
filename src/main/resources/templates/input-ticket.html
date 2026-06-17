@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>航空券検索</title>
+</head>
+
+<body>
+    <h1>航空券検索画面</h1>
+
+    <form th:action="@{/tickets/result}" method="get">
+
+        <div>
+            <label for="date">出発日</label>
+            <input type="date" id="date" name="date" th:min="${minDate}" th:max="${maxDate}"  required>
+        </div>
+
+        <div>
+            <label for="city">行き先の都市</label>
+            <select id="city" name="city" required>
+                <option value="">選択してください</option>
+                <option value="東京">東京</option>
+                <option value="大阪">大阪</option>
+                <option value="福岡">福岡</option>
+                <option value="札幌">札幌</option>
+                <option value="沖縄">沖縄</option>
+            </select>
+        </div>
+
+        <button type="submit">検索</button>
+
+    </form>
+
+    <p>
+        <a th:href="@{/}">トップへ戻る</a>
+    </p>
+</body>
+
+</html>

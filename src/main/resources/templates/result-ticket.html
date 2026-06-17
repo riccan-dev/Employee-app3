@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>航空券検索結果</title>
+</head>
+
+<body>
+    <h1>航空券検索結果画面</h1>
+
+    <p>選択された日付：</p>
+    <p th:text="${date}"></p>
+
+    <p>選択された都市：</p>
+    <p th:text="${city}"></p>
+
+    <hr>
+
+    <p>ここにデータベースから取得した航空券情報を表示します。</p>
+
+    <p>
+        <a th:href="@{/tickets/input}">検索画面へ戻る</a>
+    </p>
+
+    <p>
+        <a th:href="@{/}">トップへ戻る</a>
+    </p>
+</body>
+
+</html>
