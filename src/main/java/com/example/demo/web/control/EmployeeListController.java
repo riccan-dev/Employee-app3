@@ -32,6 +32,7 @@ public class EmployeeListController {
 		model.addAttribute("employeeDtoList", employeeDtoList);
 		
 		model.addAttribute("pageList", buildPageList(page, totalPages));
+		model.addAttribute("totalCount", employeeListService.getTotalCount());
 		return "employee-list";
 	}
 	

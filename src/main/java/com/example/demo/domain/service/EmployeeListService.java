@@ -8,4 +8,5 @@ public interface EmployeeListService {
 	
 	public List<EmployeeDto> listEmployeeDto(int page);
 	public int getTotalPages();
+	long getTotalCount();
 }

@@ -45,4 +45,9 @@ public class EmployeeListServiceImpl implements EmployeeListService {
 	public int getTotalPages() {
 	    return (int) Math.ceil((double) totalCount / PAGE_SIZE);
 	}
+	
+	@Override
+	public long getTotalCount() {
+	    return totalCount;
+	}
 }
